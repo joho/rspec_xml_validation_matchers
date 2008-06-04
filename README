@@ -14,7 +14,7 @@ Dependencies:
 Overview
 --------
 
-Adds a conform_to_dtd matcher that takes an path to an XSD file as it's parameter.
+Adds some matchers to check if some xml conforms to a dtd/xsd
 
 Usage
 -----
@@ -22,6 +22,10 @@ Usage
 describe User do
   before do
     @user = User.new
+  end
+
+  it "should create xml that conforms to the dtd" do
+    @user.to_xml.should conform_to_dtd('user.dtd')
   end
 
   it "should create xml that conforms to the xsd" do
