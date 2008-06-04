@@ -1,0 +1,37 @@
+rspec_xml_validation_matchers
+=============================
+
+Setup
+------
+
+Dependencies:
+-------------
+
+  * rspec
+  * rspec_on_rails
+  * libxml
+
+Overview
+--------
+
+Adds a conform_to_dtd matcher that takes an path to an XSD file as it's parameter.
+
+Usage
+-----
+
+describe User do
+  before do
+    @user = User.new
+  end
+
+  it "should create xml that conforms to the xsd" do
+    @user.to_xml.should conform_to_dtd('user.xsd')
+  end
+end
+
+Developer
+---------
+
+John Barton - http://whoisjohnbarton.com
+c/o
+Eden Creative Communities - http://eden.cc
