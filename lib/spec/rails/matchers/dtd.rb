@@ -12,7 +12,6 @@ module Spec
       def conform_to_xsd(filename)
         return simple_matcher("xml to confirm to dtd #{filename}") do |xml|
           validate_from_xsd_or_dtd(xml, filename) do |file_contents|
-            #raise file_contents.to_s
             XML::Schema.from_string(file_contents)
           end
         end
